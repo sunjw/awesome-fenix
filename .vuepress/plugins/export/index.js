@@ -143,6 +143,8 @@ async function generatePDF(ctx, port, host) {
     const outputFilename = 'the-fenix-project'
     const outputFile = `${pdfDir}/${outputFilename}.pdf`
 
+    fs.ensureDirSync(pdfDir)
+
     // 文件太多超过了命令行最大长度，改为10个一组多次合并
     for (let i = 0; i < files.length; i += 10) {
         let _files;
